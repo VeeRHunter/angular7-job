@@ -38,17 +38,17 @@ export class ProfilePortfolioComponent implements OnInit {
   private isDeletePortfolioFormSubmitted;
 
   @BlockUI('cover') blockUIList: NgBlockUI;
-  fileToUpload: File = null
-  defaultImage: string = ''
-  result_image : any = { thumbnail_url: ''}
-  thumbnail_url: any = {}
+  fileToUpload: File = null;
+  defaultImage = '';
+  result_image: any = { thumbnail_url: '' };
+  thumbnail_url: any = {};
 
 
   constructor(
     private formBuilder: FormBuilder,
     private storageService: StorageService,
     private apiService: ApiService,
-    private imageService:ImageUploadService
+    private imageService: ImageUploadService
   ) {
     this.memberID = this.storageService.get('memberID');
 
@@ -195,19 +195,19 @@ export class ProfilePortfolioComponent implements OnInit {
 
   public dismissAddPortfolioModal() {
     this.initAddPortfolioModal();
-    const button = <HTMLButtonElement> document.getElementById('addPortfolioModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('addPortfolioModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissUpdatePortfolioModal() {
     this.initUpdatePortfolioModal();
-    const button = <HTMLButtonElement> document.getElementById('updatePortfolioModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('updatePortfolioModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissDeletePortfolioModal() {
     this.initDeletePortfolioModal();
-    const button = <HTMLButtonElement> document.getElementById('deletePortfolioModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('deletePortfolioModalDismissButton');
     this.dismissModal(button);
   }
 
@@ -248,29 +248,29 @@ export class ProfilePortfolioComponent implements OnInit {
   }
 
 
-  handleImageInput(file: FileList){
+  handleImageInput(file: FileList) {
     // starting to block
     this.blockUIList.start('uploading...'); // Start blocking element only
-    this.fileToUpload = file.item(0)
-    var reader = new FileReader();
-    reader.onload = (event:any) => {
+    this.fileToUpload = file.item(0);
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
       this.defaultImage = event.target.result;
-      console.log(this.fileToUpload)
-      
-      this.imageService.processImage(this.fileToUpload )
-      //this.imageService.avatar(this.memberID, this.fileToUpload)
-      .subscribe( data =>{
-        this.blockUIList.stop(); // Start blocking element only
-        this.thumbnail_url = data
-        console.log(data);
-      }) 
-      
-      
-    }
-   
+      console.log(this.fileToUpload);
+
+      this.imageService.processImage(this.fileToUpload)
+        // this.imageService.avatar(this.memberID, this.fileToUpload)
+        .subscribe(data => {
+          this.blockUIList.stop(); // Start blocking element only
+          this.thumbnail_url = data;
+          console.log(data);
+        });
+
+
+    };
+
     reader.readAsDataURL(this.fileToUpload);
 
-    
-      
+
+
   }
 }

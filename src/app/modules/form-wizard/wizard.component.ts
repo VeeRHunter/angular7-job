@@ -2,14 +2,19 @@ import { Component, Output, EventEmitter, ContentChildren, QueryList, AfterConte
 import { WizardStepComponent } from './wizard-step.component';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'form-wizard',
   template:
-  `<div class="card">
+    `<div class="card">
     <div class="card-block">
       <ng-content></ng-content>
       <div class="form-wizard-actions">
         <button class="btn btn-default" type="button" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Back</button>
-        <button class="btn btn-info"  type="button" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Next</button>
+        // tslint:disable-next-line:max-line-length
+        <button class="btn btn-info"  type="button" (click)="next()"
+        [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">
+        Next
+        </button>
       </div>
     </div>
   </div>`
@@ -33,6 +38,7 @@ export class WizardComponent implements AfterContentInit {
   private _steps: Array<WizardStepComponent> = [];
   private _isCompleted = false;
 
+  // tslint:disable-next-line:no-output-on-prefix
   @Output()
   onStepChanged: EventEmitter<WizardStepComponent> = new EventEmitter<WizardStepComponent>();
 

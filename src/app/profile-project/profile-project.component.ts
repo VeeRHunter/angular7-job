@@ -233,19 +233,19 @@ export class ProfileProjectComponent implements OnInit {
 
   public dismissAddProjectModal() {
     this.initAddProjectModal();
-    const button = <HTMLButtonElement> document.getElementById('addProjectModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('addProjectModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissUpdateProjectModal() {
     this.initUpdateProjectModal();
-    const button = <HTMLButtonElement> document.getElementById('updateProjectModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('updateProjectModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissDeleteProjectModal() {
     this.initDeleteProjectModal();
-    const button = <HTMLButtonElement> document.getElementById('deleteProjectModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('deleteProjectModalDismissButton');
     this.dismissModal(button);
   }
 

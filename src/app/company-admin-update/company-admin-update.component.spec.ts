@@ -8,9 +8,9 @@ describe('CompanyAdminUpdateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompanyAdminUpdateComponent ]
+      declarations: [CompanyAdminUpdateComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

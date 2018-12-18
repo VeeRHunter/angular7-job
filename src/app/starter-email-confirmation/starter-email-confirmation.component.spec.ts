@@ -8,9 +8,9 @@ describe('StarterEmailConfirmationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StarterEmailConfirmationComponent ]
+      declarations: [StarterEmailConfirmationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

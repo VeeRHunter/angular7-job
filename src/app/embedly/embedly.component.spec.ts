@@ -8,9 +8,9 @@ describe('EmbedlyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmbedlyComponent ]
+      declarations: [EmbedlyComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

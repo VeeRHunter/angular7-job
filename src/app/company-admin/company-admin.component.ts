@@ -15,20 +15,20 @@ const DEFAULT_COVER = 'assets/images/sample-logos/bg3.jpg';
   animations: [
     trigger('imganimate', [
       transition('* => *', [
-        query('img', style({ opacity: 0})),
+        query('img', style({ opacity: 0 })),
 
         query('img', stagger('60ms', [
-          animate('600ms 1.3s ease-out', style({ opacity: 1}))
+          animate('600ms 1.3s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
 
     trigger('page', [
       transition('* => *', [
-        query('.page-content', style({ opacity: 0})),
+        query('.page-content', style({ opacity: 0 })),
 
         query('.page-content', stagger('30ms', [
-          animate('600ms 1.7s ease-out', style({ opacity: 1}))
+          animate('600ms 1.7s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
@@ -38,11 +38,11 @@ const DEFAULT_COVER = 'assets/images/sample-logos/bg3.jpg';
 })
 export class CompanyAdminComponent implements OnInit {
 
-  lat: number = 6.5760641;
-  lng: number = 3.3661079;
-  
-  latlng
-  address
+  lat = 6.5760641;
+  lng = 3.3661079;
+
+  latlng;
+  address;
 
 
 
@@ -51,9 +51,9 @@ export class CompanyAdminComponent implements OnInit {
 
   private profileImageSlimOptions;
   private coverImageSlimOptions;
-  constructor(private apiService:ApiService, 
-    private storageService:StorageService,
-    private lonLatService:LonLatService ) { }
+  constructor(private apiService: ApiService,
+    private storageService: StorageService,
+    private lonLatService: LonLatService) { }
 
   ngOnInit() {
     this.profileImageSlimOptions = {
@@ -62,7 +62,7 @@ export class CompanyAdminComponent implements OnInit {
       rounded: true,
       defaultImage: DEFAULT_IMAGE,
       imageUrl: this.profileAvatarUrl,
-      //imageUrl: 'http://178.62.74.44/uploads/profile/cHJvZmlsZV9hdmF0YXIzMg==.jpg',
+      // imageUrl: 'http://178.62.74.44/uploads/profile/cHJvZmlsZV9hdmF0YXIzMg==.jpg',
       didSave: this.profileImageSave.bind(this)
     };
 
@@ -75,27 +75,27 @@ export class CompanyAdminComponent implements OnInit {
 
     this.profileBackgroundUrl = this.storageService.get('profileBackgroundUrl');
 
-    //this.address = '719A Adetokunbo Ademola street Victoria island lagos'
+    // this.address = '719A Adetokunbo Ademola street Victoria island lagos'
 
-    this.latlng = this.lonLatService.getLatLon()
+    this.latlng = this.lonLatService.getLatLon();
 
-    console.log(this.latlng)
-    
-    
-    
+    console.log(this.latlng);
+
+
+
   }
 
-  public companyDetails(){
-    //getLatLon
+  public companyDetails() {
+    // getLatLon
   }
 
   public profileImageSave(data) {
-    
+
     const body = {
       memberID: this.storageService.get('memberID'),
       base64Image: data.output.image.replace(/^data:image\/.{2,4};base64,/, '')
     };
-  
+
     this.apiService.updateProfileAvatar(body)
       .subscribe(
         (response) => {
@@ -117,7 +117,7 @@ export class CompanyAdminComponent implements OnInit {
     const body = {
       memberID: this.storageService.get('memberID'),
       base64BgImage: data.output.image.replace(/^data:image\/.{2,4};base64,/, '')
-    
+
     };
     this.apiService.updateProfileBackground(body)
       .subscribe(
@@ -130,7 +130,7 @@ export class CompanyAdminComponent implements OnInit {
           }
         }
       );
-        return true;
+    return true;
   }
 
 }

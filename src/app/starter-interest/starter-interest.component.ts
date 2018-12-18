@@ -36,9 +36,9 @@ export class StarterInterestComponent implements OnInit {
     let interestString = '[';
     for (const key in this.interests) {
       if (this.interests.hasOwnProperty(key)) {
-          if (this.interests[key]) {
-            interestString += key + ' ,';
-          }
+        if (this.interests[key]) {
+          interestString += key + ' ,';
+        }
       }
     }
     interestString = interestString.replace(/ ,$/, ']');

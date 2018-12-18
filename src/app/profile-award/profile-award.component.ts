@@ -202,19 +202,19 @@ export class ProfileAwardComponent implements OnInit {
 
   public dismissAddAwardModal() {
     this.initAddAwardModal();
-    const button = <HTMLButtonElement> document.getElementById('addAwardModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('addAwardModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissUpdateAwardModal() {
     this.initUpdateAwardModal();
-    const button = <HTMLButtonElement> document.getElementById('updateAwardModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('updateAwardModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissDeleteAwardModal() {
     this.initDeleteAwardModal();
-    const button = <HTMLButtonElement> document.getElementById('deleteAwardModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('deleteAwardModalDismissButton');
     this.dismissModal(button);
   }
 

@@ -1,10 +1,11 @@
-export class addlikemodel{
+// tslint:disable-next-line:class-name
+export class addlikemodel {
     public postID: string;
     public memberID: string;
-    //public likerID : string;
-    //public like: string;
-    //public message : string;
-    public post_type : string;
+    // public likerID : string;
+    // public like: string;
+    // public message : string;
+    public post_type: string;
     public author: string;
     public thumbnail_url: string;
     public provider_url: string;
@@ -23,14 +24,14 @@ export class addlikemodel{
 }
 
 
-/* new 
-Below filds not find for like 
+/* new
+Below filds not find for like
 "actorID" : 41,
 "actorName" : "Carl Njoku",
 "actorAvatar" : "cHJvZmlsZV9hdmF0YXIzMg==.jpg",
 "actorPosition" : "General Manager",
 "actorCurrent_employer" : "Lucent Co",
-"title" : 
+"title" :
 	"author_position" : "test",
 	"author_current_employer" : "test",
     "feedType" : "link",

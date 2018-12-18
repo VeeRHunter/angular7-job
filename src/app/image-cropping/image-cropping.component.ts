@@ -6,26 +6,26 @@ import { ImageCroppedEvent } from 'ngx-image-cropper/src/image-cropper.component
   templateUrl: './image-cropping.component.html',
   styleUrls: ['./image-cropping.component.css']
 })
-export class ImageCroppingComponent  {
+export class ImageCroppingComponent {
 
   imageChangedEvent: any = '';
   croppedImage: any = '';
   cropperReady = false;
 
-  
-  
+
+
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
   }
 
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
-}
-  
+  }
+
   imageLoaded() {
     this.cropperReady = true;
   }
-  loadImageFailed () {
+  loadImageFailed() {
     console.log('Load failed');
   }
 

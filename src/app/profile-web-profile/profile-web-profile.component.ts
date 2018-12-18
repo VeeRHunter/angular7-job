@@ -187,19 +187,19 @@ export class ProfileWebProfileComponent implements OnInit {
 
   public dismissAddWebpModal() {
     this.initAddWebpModal();
-    const button = <HTMLButtonElement> document.getElementById('addWebpModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('addWebpModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissUpdateWebpModal() {
     this.initUpdateWebpModal();
-    const button = <HTMLButtonElement> document.getElementById('updateWebpModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('updateWebpModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissDeleteWebpModal() {
     this.initDeleteWebpModal();
-    const button = <HTMLButtonElement> document.getElementById('deleteWebpModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('deleteWebpModalDismissButton');
     this.dismissModal(button);
   }
 

@@ -181,19 +181,19 @@ export class ProfileWebLanguageComponent implements OnInit {
 
   public dismissAddLanguageModal() {
     this.initAddLanguageModal();
-    const button = <HTMLButtonElement> document.getElementById('addLanguageModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('addLanguageModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissUpdateLanguageModal() {
     this.initUpdateLanguageModal();
-    const button = <HTMLButtonElement> document.getElementById('updateLanguageModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('updateLanguageModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissDeleteLanguageModal() {
     this.initDeleteLanguageModal();
-    const button = <HTMLButtonElement> document.getElementById('deleteLanguageModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('deleteLanguageModalDismissButton');
     this.dismissModal(button);
   }
 

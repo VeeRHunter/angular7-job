@@ -13,20 +13,20 @@ import { ApiService } from './../app-services/api.service';
   animations: [
     trigger('imganimate', [
       transition('* => *', [
-        query('img', style({ opacity: 0})),
+        query('img', style({ opacity: 0 })),
 
         query('img', stagger('60ms', [
-          animate('600ms 1.3s ease-out', style({ opacity: 1}))
+          animate('600ms 1.3s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
 
     trigger('page', [
       transition('* => *', [
-        query('.page-content', style({ opacity: 0})),
+        query('.page-content', style({ opacity: 0 })),
 
         query('.page-content', stagger('30ms', [
-          animate('600ms 1.7s ease-out', style({ opacity: 1}))
+          animate('600ms 1.7s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
@@ -35,22 +35,23 @@ import { ApiService } from './../app-services/api.service';
   ]
 })
 export class ThoughtComponent implements OnInit {
-  @Input() showMeThought:Boolean
-  @Input('thumbnail_url') thumbnail_url: any
+  @Input() showMeThought: Boolean;
+  // tslint:disable-next-line:no-input-rename
+  @Input('thumbnail_url') thumbnail_url: any;
   private addMessageForm: FormGroup;
-  private post_result
+  private post_result;
   private error;
 
-  private firstname
-  private lastname
-  private author
-  private avatar
-  private current_employer
-  private current_position
-  
-  constructor(private formBuilder:FormBuilder,
-              private apiService:ApiService,
-              private storageService:StorageService) { 
+  private firstname;
+  private lastname;
+  private author;
+  private avatar;
+  private current_employer;
+  private current_position;
+
+  constructor(private formBuilder: FormBuilder,
+    private apiService: ApiService,
+    private storageService: StorageService) {
     this.addMessageForm = formBuilder.group({
       message: [null],
       post_type: [null],
@@ -62,21 +63,21 @@ export class ThoughtComponent implements OnInit {
   ngOnInit() {
     this.firstname = this.storageService.get('firstname');
     this.lastname = this.storageService.get('lastname');
-    this.author = this.firstname +' '+this.lastname
+    this.author = this.firstname + ' ' + this.lastname;
 
     this.apiService.getUserdetails(this.storageService.get('memberID'))
-    .subscribe((response) => {  
-      console.log(response)
-      this.avatar = response[0].avatar
-      this.current_position = response[0].current_position
-      this.current_employer = response[0].current_employer
-     
-    })
+      .subscribe((response) => {
+        console.log(response);
+        this.avatar = response[0].avatar;
+        this.current_position = response[0].current_position;
+        this.current_employer = response[0].current_employer;
+
+      });
   }
 
   public onMessageFormSubmit() {
-    let data = this.addMessageForm.value;   
-    this.author = this.firstname+' '+this.lastname
+    const data = this.addMessageForm.value;
+    this.author = this.firstname + ' ' + this.lastname;
     data['post_date'] = new Date().toUTCString();
     data['memberID'] = this.storageService.get('memberID');
     data['author'] = this.author;
@@ -92,8 +93,8 @@ export class ThoughtComponent implements OnInit {
         this.post_result = response[0];
         // this.message = 'Experience successfully added';
 
-        console.log(response)
-        
+        console.log(response);
+
       },
       (error) => {
         if (error.status === 200 || error.status === 201) {
@@ -102,11 +103,11 @@ export class ThoughtComponent implements OnInit {
           // console.log('Email already exist');
           this.error = '';
           // this.message = 'Experience successfully added';
-          
+
         } else {
           // this.message = '';
           this.error = 'Error occurred while saving message';
-          
+
         }
       }
     );

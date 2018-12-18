@@ -14,29 +14,29 @@ import { NgxSpinnerService } from 'ngx-spinner';
   animations: [
     trigger('imganimate', [
       transition('* => *', [
-        query('img', style({ opacity: 0})),
+        query('img', style({ opacity: 0 })),
 
         query('img', stagger('60ms', [
-          animate('600ms 1.3s ease-out', style({ opacity: 1}))
+          animate('600ms 1.3s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
 
     trigger('page', [
       transition('* => *', [
-        query('.page-content', style({ opacity: 0})),
+        query('.page-content', style({ opacity: 0 })),
 
         query('.page-content', stagger('30ms', [
-          animate('900ms 1.7s ease-out', style({ opacity: 1}))
+          animate('900ms 1.7s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
     trigger('exp', [
       transition('* => *', [
-        query('.experience-list', style({ opacity: 0})),
+        query('.experience-list', style({ opacity: 0 })),
 
         query('.experience-list', stagger('30ms', [
-          animate('900ms 2.7s ease-out', style({ opacity: 1}))
+          animate('900ms 2.7s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
@@ -82,8 +82,8 @@ export class ProfileExperienceComponent implements OnInit {
   private error;
   private message;
 
-  public imageUrl = "assets/images/avatar-collection/company-avatar.png";
-  private defaultAvatar = "assets/images/avatar-collection/009-user-1.png";
+  public imageUrl = 'assets/images/avatar-collection/company-avatar.png';
+  private defaultAvatar = 'assets/images/avatar-collection/009-user-1.png';
 
 
   constructor(
@@ -92,7 +92,7 @@ export class ProfileExperienceComponent implements OnInit {
     private apiService: ApiService,
     private industryService: IndustryService,
     private profileService: ProfileService,
-    private spinner:NgxSpinnerService
+    private spinner: NgxSpinnerService
   ) {
 
     this.addExperienceForm = formBuilder.group({
@@ -130,25 +130,25 @@ export class ProfileExperienceComponent implements OnInit {
 
   public onError(): void {
     this.imageUrl = this.defaultAvatar;
-  } 
+  }
 
   ngOnInit() {
-    
+
     this.getExperienceList();
 
     const industries$ = this.industryService.getData();
-    industries$.subscribe(industry => {this.industryList = industry; });
+    industries$.subscribe(industry => { this.industryList = industry; });
   }
 
   public getExperienceList() {
-    this.spinner.show()
+    this.spinner.show();
     this.apiService.getExperience(this.storageService.get('memberID')).subscribe(
       (response) => {
         this.experienceList = response;
-       
+
         this.updateExperienceCount();
-        this.spinner.hide()
-        
+        this.spinner.hide();
+
       },
       (error) => {
         console.log(error);
@@ -188,7 +188,7 @@ export class ProfileExperienceComponent implements OnInit {
       + this.addExperienceForm.value['end_month']
       + ' '
       + this.addExperienceForm.value['end_year'];
-    this.addExperienceForm.patchValue({description: headline});
+    this.addExperienceForm.patchValue({ description: headline });
   }
 
   public toggleUpdateMakeHeadline() {
@@ -203,11 +203,11 @@ export class ProfileExperienceComponent implements OnInit {
       + this.addExperienceForm.value['end_month']
       + ' '
       + this.addExperienceForm.value['end_year'];
-    this.updateExperienceForm.patchValue({description: headline});
+    this.updateExperienceForm.patchValue({ description: headline });
   }
 
   public addExperience(data) {
-    this.spinner.show()
+    this.spinner.show();
     this.initAddExperienceModal();
     this.isAddExperienceFormSubmitted = true;
     data['current'] = data['current'] ? 'yes' : 'no';
@@ -232,7 +232,7 @@ export class ProfileExperienceComponent implements OnInit {
         this.isAddExperienceFormSubmitted = false;
         this.dismissAddExperienceModal();
         this.getExperienceList();
-        this.spinner.hide()
+        this.spinner.hide();
       },
       (error) => {
         if (error.status === 200 || error.status === 201) {
@@ -354,19 +354,19 @@ export class ProfileExperienceComponent implements OnInit {
 
   public dismissAddExperienceModal() {
     this.initAddExperienceModal();
-    const button = <HTMLButtonElement> document.getElementById('addExperienceModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('addExperienceModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissUpdateExperienceModal() {
     this.initUpdateExperienceModal();
-    const button = <HTMLButtonElement> document.getElementById('updateExperienceModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('updateExperienceModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissDeleteExperienceModal() {
     this.initDeleteExperienceModal();
-    const button = <HTMLButtonElement> document.getElementById('deleteExperienceModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('deleteExperienceModalDismissButton');
     this.dismissModal(button);
   }
 

@@ -8,9 +8,9 @@ describe('CompanyFollowingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompanyFollowingComponent ]
+      declarations: [CompanyFollowingComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

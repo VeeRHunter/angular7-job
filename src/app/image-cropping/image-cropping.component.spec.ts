@@ -8,9 +8,9 @@ describe('ImageCroppingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ImageCroppingComponent ]
+      declarations: [ImageCroppingComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

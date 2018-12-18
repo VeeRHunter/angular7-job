@@ -8,9 +8,9 @@ describe('StarterInterestComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StarterInterestComponent ]
+      declarations: [StarterInterestComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

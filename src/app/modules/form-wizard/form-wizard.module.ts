@@ -24,4 +24,4 @@ export class FormWizardModule {
       ngModule: FormWizardModule
     };
   }
- }
+}

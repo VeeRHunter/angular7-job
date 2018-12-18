@@ -1,4 +1,5 @@
-<a *ngIf="isLoggedIn$ | async" class="navbar-brand" href="index.html"><img width="131" height="29" src="assets/images/logo.png" alt=""></a>
+<a *ngIf="isLoggedIn$ | async" class="navbar-brand" href="index.html"><img width="131" height="29" src="assets/images/logo.png"
+        alt=""></a>
 <video playsinline autoplay muted loop poster="polina.jpg" id="bgvid">
     <source src="polina.webm" type="video/webm">
     <source src="assets/images/login_background.mp4" type="video/mp4">
@@ -12,7 +13,7 @@
 
         <!-- Main content -->
         <div class="content-wrapper">
-       
+
             <!-- Tabbed form -->
             <div class="tabbable panel-body bg-info border-radius-top login-form width-400 look">
                 <!---<ul class="nav nav-tabs nav-justified">
@@ -35,25 +36,29 @@
                                 <h5 class="content-group">Login</h5>
                             </div>
 
-                            <span *ngIf="loginErrors" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{loginErrors}}</span>
+                            <span *ngIf="loginErrors" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i>
+                                {{loginErrors}}</span>
                             <div class="form-group has-feedback has-feedback-left">
-                                <input type="text" class="form-control form-rounded bg-info-300 border-info-600" placeholder="Email" formControlName="email" pattern=".+@.+\..+">
-                                
+                                <input type="text" class="form-control form-rounded bg-info-300 border-info-600"
+                                    placeholder="Email" formControlName="email" pattern=".+@.+\..+">
+
 
                             </div>
 
                             <div class="form-group has-feedback has-feedback-left">
-                                <input type="password" formControlName="password" class="form-control form-rounded bg-info-300 border-info-600" placeholder="Password">
-                                
+                                <input type="password" formControlName="password" class="form-control form-rounded bg-info-300 border-info-600"
+                                    placeholder="Password">
+
                             </div>
 
                             <div class="form-group login-options">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label class="checkbox-inline">
-												<input type="checkbox" formControlName="rememberme" id="terms_signup" class="styled" checked="checked">
-												Remember
-											</label>
+                                            <input type="checkbox" formControlName="rememberme" id="terms_signup" class="styled"
+                                                checked="checked">
+                                            Remember
+                                        </label>
                                     </div>
 
                                     <div class="col-sm-6 text-right">
@@ -64,11 +69,11 @@
 
                             <div class="form-group">
                                 <button type="submit" class="btn bg-slate btn-block" [disabled]="!loginForm.valid || isLoginFormSubmitted">
-										<span *ngIf="!isLoginFormSubmitted;else show_logging_in">
-												Login <i class="icon-arrow-right14 position-right"></i>
-											</span>
-										<ng-template #show_logging_in>Logging in. Please wait...</ng-template>
-									</button>
+                                    <span *ngIf="!isLoginFormSubmitted;else show_logging_in">
+                                        Login <i class="icon-arrow-right14 position-right"></i>
+                                    </span>
+                                    <ng-template #show_logging_in>Logging in. Please wait...</ng-template>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -77,23 +82,27 @@
                         <form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
                             <div class="text-center">
                                 <h5 class="content-group">Take your career to the next Level </h5>
-                               
+
                             </div>
                             <span *ngIf="signupErrors" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i>{{signupErrors}}</span>
                             <div class="form-group has-feedback has-feedback-left">
-                                <input type="text" formControlName="firstname" id="firstname"  class="form-control border-info-600" placeholder="Your first name">
+                                <input type="text" formControlName="firstname" id="firstname" class="form-control border-info-600"
+                                    placeholder="Your first name">
                             </div>
 
                             <div class="form-group has-feedback has-feedback-left">
-                                <input type="text" formControlName="lastname" id="lastname" class="form-control  border-info-600" placeholder="Your last name">
+                                <input type="text" formControlName="lastname" id="lastname" class="form-control  border-info-600"
+                                    placeholder="Your last name">
                             </div>
 
                             <div class="form-group has-feedback has-feedback-left">
-                                <input type="email" formControlName="email" id="email_signup" class="form-control border-info-600" placeholder="Your email" pattern=".+@.+\..+">
+                                <input type="email" formControlName="email" id="email_signup" class="form-control border-info-600"
+                                    placeholder="Your email" pattern=".+@.+\..+">
                             </div>
 
                             <div class="form-group has-feedback has-feedback-left">
-                                <input type="password" formControlName="password" id="password_signup" class="form-control border-info-600" placeholder="Create password">
+                                <input type="password" formControlName="password" id="password_signup" class="form-control border-info-600"
+                                    placeholder="Create password">
                             </div>
                             <fieldset id="address-block" formGroupName="location">
                                 <div class="form-group">
@@ -139,21 +148,22 @@
                                 </div>
                             </fieldset>
 
-                            
+
 
                             <div style="font-size:11px">
-                                By clicking Sign Up, you agree to our <a href="#">Terms</a> , <a href="#">Policy</a> and Cookie Policy 
+                                By clicking Sign Up, you agree to our <a href="#">Terms</a> , <a href="#">Policy</a>
+                                and Cookie Policy
                             </div>
                             <br>
 
-    
+
 
                             <button class="btn bg-grey-800 btn-block" type="submit" [disabled]="!signupForm.valid || isSignupFormSubmitted">
-									<span *ngIf="!isSignupFormSubmitted;else show_signing_up">
-										Join us now <i class="icon-circle-right2 position-right"></i>
-									</span>
-									<ng-template #show_signing_up>Singing up. Please wait...</ng-template>
-								</button>
+                                <span *ngIf="!isSignupFormSubmitted;else show_signing_up">
+                                    Join us now <i class="icon-circle-right2 position-right"></i>
+                                </span>
+                                <ng-template #show_signing_up>Singing up. Please wait...</ng-template>
+                            </button>
                         </form>
                         <!-- <form [formGroup]="form_signup"  (ngSubmit)="signup()">
 								<div class="text-center">

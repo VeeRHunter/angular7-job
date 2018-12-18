@@ -10,13 +10,14 @@ export class AppComponent {
   title = 'starterV1';
   constructor(private spinner: NgxSpinnerService) { }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
- 
+
     setTimeout(() => {
-        /** spinner ends after 5 seconds */
-        this.spinner.hide();
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
     }, 5000);
   }
 }

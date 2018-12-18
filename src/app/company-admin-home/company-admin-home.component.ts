@@ -10,20 +10,20 @@ import { trigger, state, animate, transition, style, keyframes, query, stagger }
   animations: [
     trigger('imganimate', [
       transition('* => *', [
-        query('img', style({ opacity: 0})),
+        query('img', style({ opacity: 0 })),
 
         query('img', stagger('60ms', [
-          animate('600ms 1.3s ease-out', style({ opacity: 1}))
+          animate('600ms 1.3s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
 
     trigger('page', [
       transition('* => *', [
-        query('.page-content', style({ opacity: 0})),
+        query('.page-content', style({ opacity: 0 })),
 
         query('.page-content', stagger('30ms', [
-          animate('600ms 1.7s ease-out', style({ opacity: 1}))
+          animate('600ms 1.7s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
@@ -33,18 +33,18 @@ import { trigger, state, animate, transition, style, keyframes, query, stagger }
 })
 export class CompanyAdminHomeComponent implements OnInit {
 
-  selectedID ;
-  private industrylist:any = [];
-  private countries:any =[];
+  selectedID;
+  private industrylist: any = [];
+  private countries: any = [];
 
- 
 
-  constructor(private route:ActivatedRoute) { 
+
+  constructor(private route: ActivatedRoute) {
     this.selectedID = route.snapshot.params['memberID'];
   }
 
   ngOnInit() {
-    
+
   }
 
 }

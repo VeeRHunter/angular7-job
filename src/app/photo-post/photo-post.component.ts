@@ -13,43 +13,45 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
   styleUrls: ['./photo-post.component.css']
 })
 export class PhotoPostComponent implements OnInit {
-  @Input() showMePhoto:Boolean;
-  @Input('previewImage') previewImage; 
-  @Input('thumbnail_url') thumbnail_url: any
+  @Input() showMePhoto: Boolean;
+  // tslint:disable-next-line:no-input-rename
+  @Input('previewImage') previewImage;
+  // tslint:disable-next-line:no-input-rename
+  @Input('thumbnail_url') thumbnail_url: any;
   @BlockUI('cover') blockUIList: NgBlockUI;
-  
-  private resultDisplay: Boolean = false
-  
+
+  private resultDisplay: Boolean = false;
+
   private addImageForm: FormGroup;
-  private error
-  post_result: any = {}
-  previewThumbnail
+  private error;
+  post_result: any = {};
+  previewThumbnail;
 
-  private post_type_image = 'image'
-  private provider_url = 'www.careercolony.com'
-  private provider_name = 'Careercolony'
+  private post_type_image = 'image';
+  private provider_url = 'www.careercolony.com';
+  private provider_name = 'Careercolony';
 
-  private firstname
-  private lastname
-  private author
-  
-  private avatar
-  private current_employer
-  private current_position
+  private firstname;
+  private lastname;
+  private author;
+
+  private avatar;
+  private current_employer;
+  private current_position;
 
 
-  defaultImage: string = ''
-  fileToUpload: File = null
-  imageToUpload: File = null
-  
-  constructor(private apiService:ApiService, 
-    private imageService:ImageUploadService,
-    private storageService:StorageService,
-    private http: HttpClient, 
-    formBuilder:FormBuilder
-  ) { 
+  defaultImage = '';
+  fileToUpload: File = null;
+  imageToUpload: File = null;
+
+  constructor(private apiService: ApiService,
+    private imageService: ImageUploadService,
+    private storageService: StorageService,
+    private http: HttpClient,
+    formBuilder: FormBuilder
+  ) {
     this.addImageForm = formBuilder.group({
-      memberID: [null,Validators.required],
+      memberID: [null, Validators.required],
       author: [null],
       message: [null],
       thumbnail_url: [null],
@@ -59,27 +61,27 @@ export class PhotoPostComponent implements OnInit {
     });
   }
 
-  
+
 
   ngOnInit() {
     this.firstname = this.storageService.get('firstname');
     this.lastname = this.storageService.get('lastname');
-    this.author = this.firstname +' '+this.lastname
-    
+    this.author = this.firstname + ' ' + this.lastname;
+
     this.apiService.getUserdetails(this.storageService.get('memberID'))
-    .subscribe((response) => {  
-      console.log(response)
-      this.avatar = response[0].avatar
-      this.current_position = response[0].current_position
-      this.current_employer = response[0].current_employer
-     
-    })
+      .subscribe((response) => {
+        console.log(response);
+        this.avatar = response[0].avatar;
+        this.current_position = response[0].current_position;
+        this.current_employer = response[0].current_employer;
+
+      });
   }
 
-  
+
 
   onImageFormSubmit() {
-    let data = this.addImageForm.value;    
+    const data = this.addImageForm.value;
     data['post_date'] = new Date().toUTCString();
     data['memberID'] = this.storageService.get('memberID');
     data['post_type'] = 'image';
@@ -90,11 +92,11 @@ export class PhotoPostComponent implements OnInit {
       (response) => {
         this.post_result = response;
         // this.message = 'Experience successfully added';
-        this.previewThumbnail = 'http://165.227.59.197'+this.post_result.thumbnail_url
-        this.resultDisplay = true
-        this.showMePhoto = false
-        console.log(this.post_result)
-        
+        this.previewThumbnail = 'http://165.227.59.197' + this.post_result.thumbnail_url;
+        this.resultDisplay = true;
+        this.showMePhoto = false;
+        console.log(this.post_result);
+
       },
       (error) => {
         if (error.status === 200 || error.status === 201) {
@@ -103,16 +105,16 @@ export class PhotoPostComponent implements OnInit {
           // console.log('Email already exist');
           this.error = '';
           // this.message = 'Experience successfully added';
-          
+
         } else {
           // this.message = '';
           this.error = 'Error occurred while saving image';
-          
+
         }
       }
     );
   }
 
- 
+
 
 }

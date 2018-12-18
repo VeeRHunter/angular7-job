@@ -11,26 +11,27 @@ import { Observable } from 'rxjs/Observable';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   animations: [
     trigger('imganimate', [
       transition('* => *', [
-        query('img', style({ opacity: 0})),
+        query('img', style({ opacity: 0 })),
 
         query('img', stagger('30ms', [
-          animate('200ms 1.3s ease-out', style({ opacity: 1}))
+          animate('200ms 1.3s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
 
     trigger('live', [
       transition('* => *', [
-        query('.search', style({ opacity: 0})),
+        query('.search', style({ opacity: 0 })),
 
         query('.search', stagger('30ms', [
-          animate('600ms 1.7s ease-out', style({ opacity: 1}))
+          animate('600ms 1.7s ease-out', style({ opacity: 1 }))
         ]))
       ])
     ]),
@@ -48,10 +49,10 @@ export class NavbarComponent implements OnInit {
   private isLoginFormSubmitted: Boolean = false;
   private loginErrors;
 
-  private deviceInfo
+  private deviceInfo;
 
   users: any[];
-  userFilter: any = { firstname: '', lastname:'' };
+  userFilter: any = { firstname: '', lastname: '' };
 
   constructor(
     private authService: AuthService,
@@ -59,10 +60,10 @@ export class NavbarComponent implements OnInit {
     private apiService: ApiService,
     private router: Router,
     private filterPipe: FilterPipe,
-    private spinner:NgxSpinnerService,
+    private spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private deviceService: DeviceDetectorService
-  ) { 
+  ) {
     this.loginForm = formBuilder.group({
       email: [null, Validators.required],
       password: [null, Validators.required],
@@ -74,7 +75,7 @@ export class NavbarComponent implements OnInit {
     this.isLoggedIn$ = this.authService.isLoggedIn;
     this.storageService.clear();
     this.deviceInfo = this.deviceService.getDeviceInfo();
-    //this.users = []
+    // this.users = []
   }
 
   private login(data) {
@@ -86,8 +87,8 @@ export class NavbarComponent implements OnInit {
     this.apiService.login(data).subscribe(
       (response) => {
         this.loginErrors = '';
-        console.log(response.value.length)
-        console.log(response)
+        console.log(response.value.length);
+        console.log(response);
         if (response.value.length >= 1) {
           response = response.value[0];
           this.storageService.store('firstname', response.firstname);
@@ -109,7 +110,7 @@ export class NavbarComponent implements OnInit {
           this.loginErrors = 'Error occured during login';
           this.isLoginFormSubmitted = false;
         } else {
-          //console.log(error);
+          // console.log(error);
           this.loginErrors = 'Error occurred while login';
           this.isLoginFormSubmitted = false;
         }
@@ -118,15 +119,19 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  onSearch(){
-    
-    
-    this.users = [{ firstname: 'Jonathan', lastname:'Ebere', avar:'assets/images/6.jpg', title: 'Software Developer' }, 
-    { firstname: 'Jone', lastname:'Ebere', avar:'assets/images/6.jpg',  title: 'Country Manager'}, 
-    { firstname: 'Mario', lastname:'Badoo', avar:'assets/images/6.jpg', title: 'Business Development Officer' },
-    { firstname: 'Mobolaji', lastname:'Lewis', avar:'assets/images/59639c879aa65_team2.jpg', title: 'Country Manager' }, 
-    { firstname: 'Mokola', lastname:'Edwin', avar:'assets/images/5863cb5a7e3f0_why-you-should-consider-dating-african-girls.jpg', title: 'Business Development Officer' }, 
-    { firstname: 'Moletus', lastname:'Ray', avar:'assets/images/16.jpg', title: 'Marketing Executive' }];
+  onSearch() {
+
+
+    this.users = [{ firstname: 'Jonathan', lastname: 'Ebere', avar: 'assets/images/6.jpg', title: 'Software Developer' },
+    { firstname: 'Jone', lastname: 'Ebere', avar: 'assets/images/6.jpg', title: 'Country Manager' },
+    { firstname: 'Mario', lastname: 'Badoo', avar: 'assets/images/6.jpg', title: 'Business Development Officer' },
+    { firstname: 'Mobolaji', lastname: 'Lewis', avar: 'assets/images/59639c879aa65_team2.jpg', title: 'Country Manager' },
+    {
+      firstname: 'Mokola', lastname: 'Edwin',
+      avar: 'assets/images/5863cb5a7e3f0_why-you-should-consider-dating-african-girls.jpg',
+      title: 'Business Development Officer'
+    },
+    { firstname: 'Moletus', lastname: 'Ray', avar: 'assets/images/16.jpg', title: 'Marketing Executive' }];
   }
 
   onClickedOutside(e: Event) {

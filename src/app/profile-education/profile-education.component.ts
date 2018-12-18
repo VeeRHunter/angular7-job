@@ -204,19 +204,19 @@ export class ProfileEducationComponent implements OnInit {
 
   public dismissAddEducationModal() {
     this.initAddEducationModal();
-    const button = <HTMLButtonElement> document.getElementById('addEducationModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('addEducationModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissUpdateEducationModal() {
     this.initUpdateEducationModal();
-    const button = <HTMLButtonElement> document.getElementById('updateEducationModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('updateEducationModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissDeleteEducationModal() {
     this.initDeleteEducationModal();
-    const button = <HTMLButtonElement> document.getElementById('deleteEducationModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('deleteEducationModalDismissButton');
     this.dismissModal(button);
   }
 

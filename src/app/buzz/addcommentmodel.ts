@@ -1,10 +1,11 @@
-export class addcommentmodel{
+// tslint:disable-next-line:class-name
+export class addcommentmodel {
     public postID: string;
     public memberID: string;
-    //public commenterID : string;
+    // public commenterID : string;
     public comment_text: string;
-    //public message : string;
-    public post_type : string;
+    // public message : string;
+    public post_type: string;
     public author: string;
     public thumbnail_url: string;
     public provider_url: string;

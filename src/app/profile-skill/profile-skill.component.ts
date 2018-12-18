@@ -65,37 +65,37 @@ export class ProfileSkillComponent implements OnInit {
     this.error = '';
     this.isAddSkillFormSubmitted = true;
     this.apiService.addSkill(data)
-    .subscribe(
-      (response) => {
-        this.isAddSkillFormSubmitted = false;
-        this.skill_list.push(data['skill_title']);
-        this.profileService.setSkillCount(this.skill_list.length);
-        // this.skill_list = initResponse[0]['skill_title'];
-        // this.getAllSkills();
-      },
-      (error) => {
-        this.isAddSkillFormSubmitted = false;
-        if (error.status === 200 || error.status === 201) {
+      .subscribe(
+        (response) => {
+          this.isAddSkillFormSubmitted = false;
           this.skill_list.push(data['skill_title']);
           this.profileService.setSkillCount(this.skill_list.length);
-        } else {
-          this.error = 'Error occured while adding skill';
+          // this.skill_list = initResponse[0]['skill_title'];
+          // this.getAllSkills();
+        },
+        (error) => {
+          this.isAddSkillFormSubmitted = false;
+          if (error.status === 200 || error.status === 201) {
+            this.skill_list.push(data['skill_title']);
+            this.profileService.setSkillCount(this.skill_list.length);
+          } else {
+            this.error = 'Error occured while adding skill';
+          }
         }
-      }
-    );
+      );
   }
 
   public getAllSkills() {
     this.apiService.getSkill(this.memberID)
-    .subscribe(
-      (response) => {
-        this.skill_list = response[0]['skill_title'];
-      },
-      (error) => {
-        console.log(error);
-        this.error = 'Error occured while getting skill';
-      }
-    );
+      .subscribe(
+        (response) => {
+          this.skill_list = response[0]['skill_title'];
+        },
+        (error) => {
+          console.log(error);
+          this.error = 'Error occured while getting skill';
+        }
+      );
   }
 
   public deleteSkill(skill) {

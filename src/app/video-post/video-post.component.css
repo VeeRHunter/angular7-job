@@ -1,26 +1,29 @@
-video { 
-    width:100%;
-    max-width:500px;
-    height:auto;
- }
+video {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
 
- ::-webkit-input-placeholder {
+::-webkit-input-placeholder {
     color: #A8A7A7;
     font-size: 16px;
     font-weight: lighter
-  }
-  ::-moz-placeholder {
+}
+
+::-moz-placeholder {
     color: #A8A7A7;
     font-size: 16px;
     font-weight: lighter
-  }
-  :-ms-input-placeholder {
+}
+
+:-ms-input-placeholder {
     color: #A8A7A7;
     font-size: 16px;
     font-weight: lighter
-  }
-  ::placeholder {
+}
+
+::placeholder {
     color: #A8A7A7;
     font-size: 16px;
     font-weight: lighter
-  }
+}

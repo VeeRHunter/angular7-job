@@ -238,19 +238,19 @@ export class ProfileCertificationComponent implements OnInit {
 
   public dismissAddCertificationModal() {
     this.initAddCertificationModal();
-    const button = <HTMLButtonElement> document.getElementById('addCertificationModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('addCertificationModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissUpdateCertificationModal() {
     this.initUpdateCertificationModal();
-    const button = <HTMLButtonElement> document.getElementById('updateCertificationModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('updateCertificationModalDismissButton');
     this.dismissModal(button);
   }
 
   public dismissDeleteCertificationModal() {
     this.initDeleteCertificationModal();
-    const button = <HTMLButtonElement> document.getElementById('deleteCertificationModalDismissButton');
+    const button = <HTMLButtonElement>document.getElementById('deleteCertificationModalDismissButton');
     this.dismissModal(button);
   }
 

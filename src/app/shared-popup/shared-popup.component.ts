@@ -18,14 +18,14 @@ export class SharedPopupComponent implements OnInit {
   public post: any;
   public error: any;
   public friendList: friendmodel[];
-  public addsharepost : addsharepostmodel;
+  public addsharepost: addsharepostmodel;
 
   constructor(
     public _bsModalRef: BsModalRef,
-    private dataService : DataservicesService,
+    private dataService: DataservicesService,
     private apiService: ApiService,
     private storageService: StorageService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.onClose = new Subject();
@@ -34,28 +34,26 @@ export class SharedPopupComponent implements OnInit {
     this.addsharepost = new addsharepostmodel();
   }
   public sharePost(post): void {
+    // tslint:disable-next-line:no-debugger
     debugger;
     console.log(post);
-    console.log(this.friendList);    
-    
-    //var MemberId = this.storageService.get('memberID');
-    this.addsharepost.memberID =  this.storageService.get('memberID');
-    this.addsharepost.postID =  post.postID;
-    this.addsharepost.shareID =  this.storageService.get('memberID');
+    console.log(this.friendList);
+
+    // var MemberId = this.storageService.get('memberID');
+    this.addsharepost.memberID = this.storageService.get('memberID');
+    this.addsharepost.postID = post.postID;
+    this.addsharepost.shareID = this.storageService.get('memberID');
     this.addsharepost.recipients = [];
-    var count = this.friendList.length;
-    var i =0;
-    var j = 0;
-    for(i=0;i<count;i++)
-    {
-      if(this.friendList[i].hasShared)
-      {
+    const count = this.friendList.length;
+    let i = 0;
+    let j = 0;
+    for (i = 0; i < count; i++) {
+      if (this.friendList[i].hasShared) {
         this.addsharepost.recipients[j] = this.friendList[i].email;
         j++;
       }
     }
-    if(this.addsharepost.recipients.length !=0 )
-    {
+    if (this.addsharepost.recipients.length !== 0) {
       this.apiService.sharePost(this.addsharepost).subscribe(
         (response) => {
           this.onClose.next(true);
@@ -64,7 +62,7 @@ export class SharedPopupComponent implements OnInit {
         (error) => {
           if (error.status === 200 || error.status === 201) {
             this.error = '';
-          
+
           } else {
             this.error = 'Error occurred while saving education';
           }
@@ -77,12 +75,12 @@ export class SharedPopupComponent implements OnInit {
     this.onClose.next(false);
     this._bsModalRef.hide();
   }
-  
-  getMyFirendList()
-  {
-    var MemberId = this.storageService.get('memberID');
+
+  getMyFirendList() {
+    const MemberId = this.storageService.get('memberID');
     this.apiService.getMyFriends(MemberId).subscribe(
       (response) => {
+        // tslint:disable-next-line:no-debugger
         debugger;
         this.friendList = [];
         this.friendList = response;
@@ -90,13 +88,13 @@ export class SharedPopupComponent implements OnInit {
       (error) => {
         if (error.status === 200 || error.status === 201) {
           this.error = '';
-        
+
         } else {
           this.error = 'Error occurred while saving education';
         }
       }
     );
   }
-  
+
 
 }

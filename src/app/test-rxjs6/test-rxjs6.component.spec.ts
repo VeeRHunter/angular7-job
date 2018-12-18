@@ -8,9 +8,9 @@ describe('TestRxjs6Component', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestRxjs6Component ]
+      declarations: [TestRxjs6Component]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
